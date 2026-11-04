@@ -1,0 +1,46 @@
+{
+  "model": "xgb-soh-q 1.0",
+  "algorithm": "XGBoost gradient-boosted trees, multi-quantile regression (5th / 50th / 95th percentile)",
+  "dataset": "NASA PCoE Li-ion Battery Aging Dataset (18650 cells, 2.0 Ah)",
+  "cells_total": 25,
+  "cells_train": 19,
+  "cells_test": 6,
+  "test_cells": [
+    "B0018",
+    "B0025",
+    "B0038",
+    "B0041",
+    "B0044",
+    "B0047"
+  ],
+  "samples_train": 1602,
+  "samples_test": 356,
+  "split": "Battery-wise hold-out: no cell appears in both train and test sets",
+  "mae_pct_points": 3.65,
+  "rmse_pct_points": 4.65,
+  "interval_coverage_90": 0.89,
+  "mean_interval_width": 15.87,
+  "baseline_bms_only_mae": 13.83,
+  "mae_without_bms_feature": 7.29,
+  "features": [
+    "cycle_frac",
+    "r_growth",
+    "recovery_ratio",
+    "slope_rel",
+    "avg_temp_c",
+    "bms_soh"
+  ],
+  "feature_importance_gain": {
+    "bms_soh": 0.5221,
+    "avg_temp_c": 0.1387,
+    "cycle_frac": 0.1069,
+    "slope_rel": 0.0946,
+    "r_growth": 0.0782,
+    "recovery_ratio": 0.0594
+  },
+  "notes": [
+    "bms_soh is a synthetic channel (optimistic bias + noise) because NASA lab data has no BMS.",
+    "Features are chemistry-normalised for transfer to EV packs; transfer accuracy on Indian packs is unvalidated until field trials.",
+    "CALCE data loader is an integration point (dataset requires registration)."
+  ]
+}

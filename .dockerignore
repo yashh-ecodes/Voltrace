@@ -1,0 +1,9 @@
+**/node_modules
+frontend/dist
+frontend/android
+backend/data
+backend/keys
+**/__pycache__
+**/.pytest_cache
+.git
+docs

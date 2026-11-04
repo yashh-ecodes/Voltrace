@@ -1,0 +1,92 @@
+{
+  "model": "iforest-cells 1.0",
+  "algorithm": "Isolation Forest (100 trees, 64 samples/tree) on robust z-scores of per-cell deviation from the pack median, combined with rule thresholds",
+  "features": [
+    "z_rest",
+    "z_sag",
+    "z_temp",
+    "z_drift"
+  ],
+  "training": "11058 healthy cells from 600 simulated packs with varied balance quality",
+  "threshold_amber": 0.649,
+  "threshold_red": 0.729,
+  "validation": "Synthetic fault injection into one cell of fresh healthy packs (300 packs per fault/severity); detection requires the injected cell to be the top-scoring cell above threshold",
+  "detection_rate": {
+    "iforest_only": {
+      "self_discharge": {
+        "low": 0.187,
+        "medium": 0.47,
+        "high": 0.57
+      },
+      "resistance_rise": {
+        "low": 0.113,
+        "medium": 0.47,
+        "high": 0.84
+      },
+      "hotspot": {
+        "low": 0.063,
+        "medium": 0.107,
+        "high": 0.1
+      }
+    },
+    "rules_only": {
+      "self_discharge": {
+        "low": 0.02,
+        "medium": 1.0,
+        "high": 1.0
+      },
+      "resistance_rise": {
+        "low": 0.04,
+        "medium": 0.813,
+        "high": 1.0
+      },
+      "hotspot": {
+        "low": 0.027,
+        "medium": 0.687,
+        "high": 1.0
+      }
+    },
+    "hybrid": {
+      "self_discharge": {
+        "low": 0.203,
+        "medium": 1.0,
+        "high": 1.0
+      },
+      "resistance_rise": {
+        "low": 0.153,
+        "medium": 0.88,
+        "high": 1.0
+      },
+      "hotspot": {
+        "low": 0.087,
+        "medium": 0.707,
+        "high": 1.0
+      }
+    }
+  },
+  "false_alarm_rate_per_cell": 0.005,
+  "false_alarm_rate_per_pack": {
+    "iforest_only": 0.072,
+    "rules_only": 0.007,
+    "hybrid": 0.075
+  },
+  "raw_features": [
+    "rest_dev_mv",
+    "sag_dev_pct",
+    "temp_dev_c",
+    "drift_dev_mv_d"
+  ],
+  "robust_scale_floors": [
+    4.0,
+    4.0,
+    0.5,
+    1.0
+  ],
+  "rules": [
+    "Resting cell spread > 50 mV: AMBER; > 100 mV: RED",
+    "Single-cell resting deviation from median > 30 mV: AMBER; > 60 mV: RED",
+    "Cell temperature > 4 deg C above median: AMBER; > 7 deg C: RED",
+    "Abnormal self-discharge > 8 mV/day vs pack: AMBER; > 20 mV/day: RED",
+    "Voltage sag > 30% above pack median: AMBER; > 60%: RED"
+  ]
+}

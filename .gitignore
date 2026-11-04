@@ -1,0 +1,13 @@
+node_modules/
+frontend/dist/
+frontend/android/app/src/main/assets/public/
+frontend/dev-dist/
+frontend/android/app/build/
+frontend/android/.gradle/
+backend/data/raw/
+backend/data/*.db
+backend/keys/*.pem
+__pycache__/
+.pytest_cache/
+.env
+.env.local

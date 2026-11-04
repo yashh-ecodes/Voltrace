@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <linearGradient id="favbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".55" stop-color="#F2F8FF"/><stop offset="1" stop-color="#E4F2FF"/></linearGradient>
+    <linearGradient id="favwave" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D69A"/><stop offset="1" stop-color="#38BDF8"/></linearGradient>
+    <linearGradient id="favbr" gradientUnits="userSpaceOnUse" x1="24" y1="24" x2="96" y2="96"><stop offset="0" stop-color="#2F6BF2"/><stop offset=".45" stop-color="#38BDF8"/><stop offset="1" stop-color="#22D69A"/></linearGradient>
+    <linearGradient id="favbolt" gradientUnits="userSpaceOnUse" x1="54" y1="45" x2="64" y2="78"><stop offset="0" stop-color="#1D4ED8"/><stop offset=".55" stop-color="#1E40AF"/><stop offset="1" stop-color="#0E9F8E"/></linearGradient>
+    <radialGradient id="favglow" cx=".5" cy=".55" r=".6"><stop offset="0" stop-color="#14C9A8" stop-opacity=".22"/><stop offset="1" stop-color="#14C9A8" stop-opacity="0"/></radialGradient>
+  </defs>
+  <clipPath id="favc"><rect width="120" height="120" rx="28"/></clipPath>
+  <g clip-path="url(#favc)">
+    <rect width="120" height="120" fill="url(#favbg)"/>
+    <path d="M-8 76 C 16 68, 44 84, 56 106 L 60 128 L -8 128 Z" fill="url(#favwave)" opacity=".78"/>
+    <path d="M-8 96 C 22 90, 42 104, 48 128 L -8 128 Z" fill="#38BDF8" opacity=".28"/>
+    <ellipse cx="106" cy="10" rx="34" ry="28" fill="#38BDF8" opacity=".14"/>
+    <path d="M58 -6 C 84 10, 96 30, 128 34 L128 -6 Z" fill="#fff" opacity=".45"/>
+  </g>
+  <rect x=".75" y=".75" width="118.5" height="118.5" rx="27.25" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="1.5"/>
+  <g fill="none" stroke="url(#favbr)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 46 V36 Q26 26 36 26 H46"/>
+    <path d="M74 26 H84 Q94 26 94 36 V46"/>
+    <path d="M26 74 V84 Q26 94 36 94 H46"/>
+    <path d="M94 74 V84 Q94 94 84 94 H74"/>
+  </g>
+  <rect x="48" y="39" width="24" height="44" rx="6" fill="url(#favglow)"/>
+  <rect x="48" y="39" width="24" height="44" rx="6" fill="none" stroke="#0F2A4A" stroke-width="4.2"/>
+  <rect x="54.5" y="33.5" width="11" height="6" rx="1.6" fill="none" stroke="#0F2A4A" stroke-width="3.2"/>
+  <path d="M64 45 L51.8 63.8 H59.2 L56 77.5 L68.6 57.8 H61 Z" fill="url(#favbolt)" stroke="#0F2A4A" stroke-width="1.1" stroke-linejoin="round"/>
+</svg>
