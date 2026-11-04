@@ -28,6 +28,14 @@ backend/    FastAPI model + signing service, ML training pipeline, Supabase sche
 * Safety validation uses synthetic fault injection, not real failing packs. Voltrace is a screening tool, not a certified safety assessment.
 * CALCE data needs registration; `load_calce()` is the integration point.
 
+## Deploy on Render (one service: app + API)
+
+1. In Render, open **New → Blueprint** and pick this GitHub repo. `render.yaml` sets up a Docker web service on the free plan.
+2. Render generates `VOLTRACE_SIGNING_SEED` once. The Ed25519 signing key is derived from it, so it survives restarts and never appears in the repo. Do not change it: passports signed with the old key would stop verifying.
+3. When the build finishes, open `https://<service>.onrender.com`. QR codes automatically point to that address.
+
+On the free plan the service sleeps after about 15 minutes idle and takes roughly 30–60 seconds to wake. Open it a minute before judging. The SQLite passport store is ephemeral there; QR verification still works because each QR carries the signed record. Add `SUPABASE_URL` and `SUPABASE_SERVICE_KEY` to keep passports permanently.
+
 ## Run it
 
 ```bash
